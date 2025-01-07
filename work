@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"> <!--signifies the language of the web page--->
+    <head>
+        <title>This is a demo</title>
+        <script>
+            //javascript can be written using functions, and the function will be called when an event is triggered,  and the event is triggered when a button is clicked
+            function work(){
+                document.getElementsByClassName("demo").innerHTML="hello";
+                let text = "The rain in SPAIN stays mainly in the plain";
+                text.match("ain");
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1 style="color: purple; font-size: 60px;">Hello my name is Hephzibah Ranjan <br> hi guyz</p> <!--the line break adds to the next line-->
+            <hr> <!--horizontal line is displayed-->
+        <h3><a href="https://github.com/Hephzibah777">Click on this link to visit my Github profile</a></h1> <!--to create a hyperlink-->
+            <img src="/home/hephzibahr/Downloads/myimage.jpeg" width="200" height="200" alt="my pic"> <!--snce it is absolute url and not relative url absolute url means when the image is in local desktop and when your image is realted 
+                                                                                                     to the domain it will come /domain/imagename the height and weight are in default in pixels-->
+        <p title="currently in odisha">I study in XIM University</p> <!--title helps us to showcase the messsage that we want when the paragraph is hovered-->
+        
+        <h3 style="font-size: 30px;">I am pursuing Btech in CSE and currently working as a developer intern in MindFire Digital LLP</h3> <!--there are size headers-->
+        <pre> <!--if you want the spaces and line breaks as it is also called preformatted text-->
+            My Bonnie lies over the ocean. jjjflhkj
+          
+            My Bonnie lies over the sea.
+          
+            My Bonnie lies over the ocean.
+          
+            Oh, bring back my Bonnie to me.
+          </pre>
+          <p><b>Srishti is my nickname</b></p>
+          <p><i>Srishti is my nickname</i></p>
+          <em>Srishti is my nickname</em> <!--gives the output in italics-->
+          <p><mark>Srishti </mark>is my nickname</p> <!--highlights the enclosed element in mark-->
+          <p><del>Srishti </del>is my nickname</p> <!--strikes the enclosed element with del, subscript-sub superscript-sup-->
+          <address>
+            Written by John Doe.<br>
+            Visit us at:<br>
+            Example.com<br>
+            Box 564, Disneyland<br>
+            USA
+            </address> <!--gives us in address format-->
+            <table>
+                <tr>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+              </table>
+              <ul>
+                <li>hephzii</li>
+                <li>beulah</li>
+                <li>ayash</li>
+              </ul>
+              <ol>
+                <li>hephzii</li>
+                <li>beulah</li>
+                <li>ayash</li>
+              </ol>
+              <p class="demo" onclick="work()" style="font-size: 10px;">I am a block element</p> <!--starts in a new line always-->
+              <div>I am a block element also</div> <!--starts in a new line always -->
+              <span>takes as much space as needed, I am an inline element</span>
+
+
+
+
+    </body>
+</html>
