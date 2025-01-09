@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="heading">
+        <h1><b>EMPLOYEE'S REGISTRATION FORM</b></h1>
+    </div>
+    <div class="maindiv"> <!--the main div which contains two paarts-->
+        <div class="firstdiv"> <!--the first div is the register part-->
+
+            <div class="firstdetail">
+                <form>
+                    <h2>REGISTER HERE</h2>
+                    <input placeholder="Email" id="inputs" required>
+                    <input placeholder="Password" id="password" name="password" type="password">
+                    <div class="passvis"><b><input type="checkbox" onclick="myFunction()" id="passwordcheck">Show Password</b></div>  <!--toggle password visibility-->
+                    <div id="message">
+                        <!-- the following message will be displayed when the password input field gets keyboards focus -->
+                        <h3>Password must contain the following:</h3>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                    <input placeholder="Confirm Password" id="inputs" required>
+                    <textarea placeholder="Address... " id="inputsec" required></textarea>
+                    <br>
+                    <h2>QUALIFICATIONS : </h2>
+
+                    <select name="university" id="inputs">
+                        <option value="volvo">Select University</option>
+                        <option value="saab">Saab</option>
+                    </select>
+                    <select name="university" id="inputs">
+                        <option value="volvo">Highest Qualification</option>
+                        <option value="saab">Saab</option>
+                    </select>
+                    <select name="university" id="inputs">
+                        <option value="volvo">Grade Points</option>
+                        <option value="saab">Saab</option>
+                    </select>
+                    <button class="buttondetail">Submit Application</button>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="secondiv"> <!--the second div is the details part-->
+            <form>
+                <h2>YOUR DETAILS</h2>
+                <input placeholder="First Name" id="inputs" required>
+                <input placeholder="Last Name" id="inputs" required>
+                <span class="checks">
+                    <label for="check" style="margin-right: 80px;"><b>Relocation Required</b></label>
+                    <label for="check"><b>YES</b></label>
+                    <input type="checkbox" id="yes" name="yes" value="yes">
+                    <label for="check"><b>NO</b></label>
+                    <input type="checkbox" id="no" name="no" value="no">
+                </span>
+
+                <input placeholder="Country" id="inputs" required>
+                <input placeholder="Phone Number" id="inputs" required>
+                <input type="datetime" placeholder="dd-mm-yyyy" id="inputs" required>
+                <hr>
+                <h2 class="or">Or</h2>
+                <h1>AutoFill with Resume</h1>
+                <input type="file" id="myFile" name="filename" id="inputthird">
+            </form>
+
+        </div>
+
+    </div>
+    <script>
+        // password validation
+        function myFunction(){
+            var temp = document.getElementById("passwordcheck");
+            var myInput = document.getElementById("password");
+            if(myInput.type==="password") {
+                myInput.type="text";
+            }
+            else {
+                myInput="password";
+            }
+            
+        }
+        
+            var myInput = document.getElementById("password");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+            var message = document.getElementById("message");
+
+            myInput.onfocus = function () {
+                message.style.display = "block";
+            }
+            myInput.onblur = function () {
+                message.style.display = "none";
+            }
+            // When the user starts to type something inside the password field
+            myInput.onkeyup = function () {
+                // Validate lowercase letters
+                var lowerCaseLetters = /[a-z]/g;
+                if (myInput.value.match(lowerCaseLetters)) {
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                } else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+
+                // Validate capital letters
+                var upperCaseLetters = /[A-Z]/g;
+                if (myInput.value.match(upperCaseLetters)) {
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                } else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                }
+
+                // Validate numbers
+                var numbers = /[0-9]/g;
+                if (myInput.value.match(numbers)) {
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+
+                // Validate length
+                if (myInput.value.length >= 8) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+            
+        }
+    </script>
+</body>
+
+</html>
