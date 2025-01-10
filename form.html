@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Registration Form</title>
     <link rel="stylesheet" href="styles.css">
 
@@ -11,139 +13,494 @@
     <div class="heading">
         <h1><b>EMPLOYEE'S REGISTRATION FORM</b></h1>
     </div>
-    <div class="maindiv"> <!--the main div which contains two paarts-->
-        <div class="firstdiv"> <!--the first div is the register part-->
+    <div class="totaldiv"> <!--contains form and table-->
+        <form id="myForm">
+            <div class="maindiv"> <!--the main div which contains two paarts-->
+                <div class="firstdiv"> <!--the first div is the register part-->
 
-            <div class="firstdetail">
-                <form>
-                    <h2>REGISTER HERE</h2>
-                    <input placeholder="Email" id="inputs" required>
-                    <input placeholder="Password" id="password" name="password" type="password">
-                    <div class="passvis"><b><input type="checkbox" onclick="myFunction()" id="passwordcheck">Show Password</b></div>  <!--toggle password visibility-->
-                    <div id="message">
-                        <!-- the following message will be displayed when the password input field gets keyboards focus -->
-                        <h3>Password must contain the following:</h3>
-                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    <div class="firstdetail">
+                        <div><span class="ast">*</span>Indicates Required</div>
+
+                        <h2>REGISTER HERE</h2>
+                        <p class="para-field">
+                            <input placeholder="Email*" name="email" class="inputs" id="email" type="email"
+                                onfocus="highlightField(this)" onblur="validateEmail(this)">
+                            <br>
+                            <span id="email-error" class="error-message"></span>
+                        </p>
+                        <p class="para-field">
+                            <input placeholder="Password*" id="password" name="password" type="password">
+                            <span id="password-error" class="error-message"></span>
+                        </p>
+
+                        <div class="passvis"><b><input type="checkbox" onclick="myFunction()" id="passwordcheck">Show
+                                Password</b></div> <!--toggle password visibility-->
+                        <div id="message">
+                            <!-- the following message will be displayed when the password input field gets keyboards focus -->
+                            <h3>Password must contain the following:</h3>
+                            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                            <p id="number" class="invalid">A <b>number</b></p>
+                            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                        </div>
+                        <p class="para-field">
+                            <select name="country" id="country" class="inputs" onchange="populateCities()">
+                                <option value="">Select Country*</option>
+                            </select>
+
+                            <span id="country-error" class="error-message"></span>
+                        </p>
+                        <p class="para-field">
+                            <select name="city" id="city" class="inputs" onchange="populateAreas()">
+                                <option value="">Select city*</option>
+                            </select>
+                            <span id="city-error" class="error-message"></span>
+                        </p>
+                        <p class="para-field">
+                            <select name="area" id="area" class="inputs">
+                                <option value="">Select Area*</option>
+                            </select>
+                            <span id="area-error" class="error-message"></span>
+                        </p>
+                        <p class="para-field">
+                            <input placeholder="Pin Code*" onfocus="highlightField(this)"
+                                onblur="nohighlightField(this)" name="pin" class="inputs" id="pin">
+                            <span id="pin-error" class="error-message"></span>
+                        </p>
+
+
+                        <br>
+                        <h2>QUALIFICATIONS : </h2>
+
+                        <p class="para-field">
+                            <select name="university" id="university" class="inputs">
+                                <option value="volvo">Select University*</option>
+                                <option value="saab">XIM University</option>
+                            </select>
+                            <span id="university-error" class="error-message"></span>
+                        </p>
+
+                        <p class="para-field">
+                            <select name="qualification" id="qualification" class="inputs">
+                                <option value="volvo">Highest Qualification*</option>
+                                <option value="saab">Saab</option>
+                            </select>
+                            <span id="qualification-error" class="error-message"></span>
+                        </p>
+
+                        <p class="para-field">
+                            <select name="grade" id="grade" class="inputs">
+                                <option value="volvo">Grade Points*</option>
+                                <option value="saab">Saab</option>
+                            </select>
+                            <br>
+                            <span id="grade-error" class="error-message"></span>
+                        </p>
                     </div>
-                    <input placeholder="Confirm Password" id="inputs" required>
-                    <textarea placeholder="Address... " id="inputsec" required></textarea>
-                    <br>
-                    <h2>QUALIFICATIONS : </h2>
+                </div>
+                <div class="secondiv"> <!--the second div is the details part-->
 
-                    <select name="university" id="inputs">
-                        <option value="volvo">Select University</option>
-                        <option value="saab">Saab</option>
-                    </select>
-                    <select name="university" id="inputs">
-                        <option value="volvo">Highest Qualification</option>
-                        <option value="saab">Saab</option>
-                    </select>
-                    <select name="university" id="inputs">
-                        <option value="volvo">Grade Points</option>
-                        <option value="saab">Saab</option>
-                    </select>
-                    <button class="buttondetail">Submit Application</button>
-                </form>
+                    <h2>YOUR DETAILS</h2>
+                    <p class="para-field">
+                        <input placeholder="First Name*" name="firstname" onfocus="highlightField(this)"
+                            onblur="nohighlightField(this)" id="firstname" class="inputs">
+                        <span id="firstname-error" class="error-message"></span>
+                    </p>
+                    <p class="para-field">
+                        <input placeholder="Last Name*" name="lastname" onfocus="highlightField(this)"
+                            onblur="nohighlightField(this)" id="lastname" class="inputs">
+                        <span id="lastname-error" class="error-message"></span>
+                    </p>
+                    <span class="checks">
+                        <label for="check" style="margin-right: 80px;"><b>Relocation*</b></label>
+                        <label for="check"><b>YES</b></label>
+                        <input type="checkbox" id="yes" name="yes" value="yes">
+                        <label for="check"><b>NO</b></label>
+                        <input type="checkbox" id="no" name="no" value="no">
+                        <br>
+                        <span id="radio-error" class="error-message"></span>
+                    </span>
 
+                    <p class="para-field">
+                        <input placeholder="Phone Number*" name="phone" class="inputs" id="phone">
+                        <span id="phone-error" class="error-message"></span>
+                    </p>
+                    <p class="para-field">
+                        <input type="date" placeholder="dd-mm-yyyy" name="date" id="date" class="inputs">
+                        <span id="date-error" class="error-message"></span>
+                    </p>
+
+                    <hr>
+                    <h2 class="or">Or</h2>
+                    <h1>AutoFill with Resume</h1>
+                    <input type="file" id="myFile" name="filename" id="inputthird">
+
+
+                </div>
+
+                <button class="buttondetail" type="submit">Submit Application</button>
             </div>
+        </form>
 
+
+        <div class="table-div">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- dynamic rows will be appended here -->
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="secondiv"> <!--the second div is the details part-->
-            <form>
-                <h2>YOUR DETAILS</h2>
-                <input placeholder="First Name" id="inputs" required>
-                <input placeholder="Last Name" id="inputs" required>
-                <span class="checks">
-                    <label for="check" style="margin-right: 80px;"><b>Relocation Required</b></label>
-                    <label for="check"><b>YES</b></label>
-                    <input type="checkbox" id="yes" name="yes" value="yes">
-                    <label for="check"><b>NO</b></label>
-                    <input type="checkbox" id="no" name="no" value="no">
-                </span>
-
-                <input placeholder="Country" id="inputs" required>
-                <input placeholder="Phone Number" id="inputs" required>
-                <input type="datetime" placeholder="dd-mm-yyyy" id="inputs" required>
-                <hr>
-                <h2 class="or">Or</h2>
-                <h1>AutoFill with Resume</h1>
-                <input type="file" id="myFile" name="filename" id="inputthird">
-            </form>
-
-        </div>
-
     </div>
+
+
+
     <script>
-        // password validation
-        function myFunction(){
-            var temp = document.getElementById("passwordcheck");
-            var myInput = document.getElementById("password");
-            if(myInput.type==="password") {
-                myInput.type="text";
+        let editrow=null;
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            if(editrow!=null){
+                editrow.cells[0].textContent=document.getElementById("email");
+                
+            }
+            else{
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+
+            const tablebody = document.querySelector("#myTable tbody");
+            const newRow = document.createElement("tr");
+            const emailCell = document.createElement("td");
+            emailCell.textContent = email;
+
+            const phoneCell = document.createElement("td");
+            phoneCell.textContent = phone;
+
+            const firstnameCell = document.createElement("td");
+            firstnameCell.textContent = firstname;
+
+            const lastnameCell = document.createElement("td");
+            lastnameCell.textContent = lastname;
+
+            newRow.appendChild(emailCell);
+            newRow.appendChild(phoneCell);
+            newRow.appendChild(firstnameCell);
+            newRow.appendChild(lastnameCell);
+
+
+            //create edit button
+            const editbutton=document.createElement("button");
+            editbutton.textContent="Edit";
+            editbutton.classList.add("button-edit");
+            editbutton.addEventListener("click", function() {
+                handleEdit(newRow);
+            });
+
+            //create delete button
+            const deletebutton=document.createElement("button");
+            deletebutton.textContent="Delete";
+            deletebutton.classList.add("button-delete");
+            
+            const commonbutton=document.createElement("td");
+            commonbutton.classList.add("buttons");
+            commonbutton.append(editbutton, deletebutton);
+
+            newRow.appendChild(commonbutton);
+            tablebody.append(newRow);
+
+            document.getElementById("myForm").reset();
+        }
+
+        })
+
+        const data = {
+            "USA": {
+                "New York": ["Manhattan", "Brooklyn", "Queens"],
+                "California": ["Los Angeles", "San Francisco", "San Diego"]
+            },
+            "India": {
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+                "Delhi": ["South Delhi", "North Delhi", "West Delhi"]
+            }
+        };
+
+        function handleEdit(row){
+           
+            document.getElementById("email").value=row.cells[0].textContent;
+            document.getElementById("phone").value=row.cells[1].textContent;
+            document.getElementById("firstname").value=row.cells[2].textContent;
+            document.getElementById("lastname").value=row.cells[3].textContent;
+
+            document.getElementsByClassName("buttondetail").textContent="Update";
+            editrow=row;
+        }
+
+        // Populate country dropdown on page load
+        window.onload = function () {
+            const countrySelect = document.getElementById('country');
+            for (let country in data) {
+                let option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                countrySelect.appendChild(option);
+            }
+        };
+
+        // Populate cities based on selected country
+        function populateCities() {
+            console.log("hello");
+            const countrySelect = document.getElementById('country');
+            const citySelect = document.getElementById('city');
+            const areaSelect = document.getElementById('area');
+            const selectedCountry = countrySelect.value;
+
+            // Clear existing options
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            areaSelect.innerHTML = '<option value="">Select Area</option>';
+
+            if (selectedCountry) {
+                const cities = Object.keys(data[selectedCountry]);
+                cities.forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        // Populate areas based on selected city
+        function populateAreas() {
+            const countrySelect = document.getElementById('country');
+            const citySelect = document.getElementById('city');
+            const areaSelect = document.getElementById('area');
+            const selectedCountry = countrySelect.value;
+            const selectedCity = citySelect.value;
+
+            // Clear existing options
+            areaSelect.innerHTML = '<option value="">Select Area</option>';
+
+            if (selectedCountry && selectedCity) {
+                const areas = data[selectedCountry][selectedCity];
+                areas.forEach(area => {
+                    let option = document.createElement('option');
+                    option.value = area;
+                    option.textContent = area;
+                    areaSelect.appendChild(option);
+                });
+            }
+        }
+
+
+        function highlightField(field) {
+            field.style.backgroundColor = "grey";
+        }
+        function nohighlightField(field) {
+            field.style.backgroundColor = "";
+        }
+        function validateEmail(field) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(field.value)) {
+                field.style.borderColor = "red";
+                document.getElementById("email-error").textContent = "Please enter a valid email address";
             }
             else {
-                myInput="password";
+                field.style.borderColor = "green";
+                document.getElementById("email-error").textContent = "";
             }
-            
+            field.style.backgroundColor = "";
         }
-        
-            var myInput = document.getElementById("password");
-            var letter = document.getElementById("letter");
-            var capital = document.getElementById("capital");
-            var number = document.getElementById("number");
-            var length = document.getElementById("length");
-            var message = document.getElementById("message");
+        //Empty fields validation manually
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var country = document.getElementById("country").value;
+            var city = document.getElementById("city").value;
+            var area = document.getElementById("area").value;
+            var pin = document.getElementById("pin").value;
+            var university = document.getElementById("university").value;
+            var qualification = document.getElementById("qualification").value;
+            var grade = document.getElementById("grade").value;
+            var phone = document.getElementById("phone").value;
+            var date = document.getElementById("date").value;
+            var firstname = document.getElementById("firstname").value;
+            var lastname = document.getElementById("lastname").value;
+            var yes = document.getElementById("yes").value;
+            var no = document.getElementById("no").value;
+           
 
-            myInput.onfocus = function () {
-                message.style.display = "block";
-            }
-            myInput.onblur = function () {
-                message.style.display = "none";
-            }
-            // When the user starts to type something inside the password field
-            myInput.onkeyup = function () {
-                // Validate lowercase letters
-                var lowerCaseLetters = /[a-z]/g;
-                if (myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
-
-                // Validate capital letters
-                var upperCaseLetters = /[A-Z]/g;
-                if (myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                }
-
-                // Validate numbers
-                var numbers = /[0-9]/g;
-                if (myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                }
-
-                // Validate length
-                if (myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                }
+            let isValid = true;
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("password-error").textContent = "";
+            document.getElementById("country-error").textContent = "";
+            document.getElementById("city-error").textContent = "";
+            document.getElementById("area-error").textContent = "";
+            document.getElementById("pin-error").textContent = "";
+            document.getElementById("university-error").textContent = "";
+            document.getElementById("qualification-error").textContent = "";
+            document.getElementById("grade-error").textContent = "";
+            document.getElementById("firstname-error").textContent = "";
+            document.getElementById("lastname-error").textContent = "";
+            document.getElementById("phone-error").textContent = "";
+            document.getElementById("radio-error").textContent = "";
+            document.getElementById("date-error").textContent = "";
             
+
+            const emailRegex = /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$/;
+            if (email==null) {
+                document.getElementById("email-error").textContent = "Invalid email address.";
+                isValid = false;
+            }
+            
+            
+            if (password == null) {
+                document.getElementById("password-error").textContent = "Password field is missing";
+                isValid = false;
+            }
+            console.log(isValid);
+
+            const countryRegex = /^[a-zA-Z]{1,10}$/;
+            if (country == null) {
+                document.getElementById("country-error").textContent = "Country field is missing";
+                isValid = false;
+            }
+            if (city == null) {
+                document.getElementById("city-error").textContent = "City field is missing ";
+                isValid = false;
+            }
+            if (area == null) {
+                document.getElementById("area-error").textContent = "Area field is missing";
+                isValid = false;
+            }
+            const pinRegex = /^\d$/;
+            if (pin==null) {
+                document.getElementById("pin-error").textContent = "Pin must  contain only numbers";
+                isValid = false;
+            }
+            if (university == null) {
+                document.getElementById("university-error").textContent = "University is not selected";
+                isValid = false;
+            }
+            if (qualification == null) {
+                document.getElementById("qualification-error").textContent = "Qualification is not selected";
+                isValid = false;
+            }
+            if (grade == null) {
+                document.getElementById("grade-error").textContent = "Grade is not selected";
+                isValid = false;
+            }
+            if (firstname == null) {
+                document.getElementById("firstname-error").textContent = "First Name field is missing";
+                isValid = false;
+            }
+            if (lastname == null) {
+                document.getElementById("lastname-error").textContent = "Last Name field is missing";
+                isValid = false;
+            }
+            const phoneRegex = /^[7-9][0-9]{9}$/;
+            if (phone == null) {
+                document.getElementById("phone-error").textContent =
+                    "Phone number is missing";
+                isValid = false;
+            }
+            if (yes == null && no == null) {
+                document.getElementById("radio-error").textContent = "Relocation is not selected";
+                isValid = false;
+            }
+            if (date == null) {
+                document.getElementById("date-error").textContent = "Date is not selected";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+
+
+
+
+        });
+        // password toggle visibility
+        function myFunction() {
+            var temp = document.getElementById("passwordcheck");
+            var myInput = document.getElementById("password");
+            if (myInput.type === "password") {
+                myInput.type = "text";
+            }
+            else {
+                myInput = "password";
+            }
+
+
+        }
+        //password validation
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        var message = document.getElementById("message");
+
+        myInput.onfocus = function () {
+            message.style.display = "block";
+        }
+        myInput.onblur = function () {
+            message.style.display = "none";
+        }
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+
         }
     </script>
 </body>
