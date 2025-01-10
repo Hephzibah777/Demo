@@ -1,0 +1,357 @@
+body{
+    background-image: url('https://d1di04ifehjy6m.cloudfront.net/media/filer_public/67/ca/67cac7fa-1853-4f1d-95ed-db1ed6b38ec5/adobestock_212026013_2.png');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height:100%;
+   
+    
+}
+.totaldiv{
+    display: flex;
+    justify-content: space-between;
+
+}
+table, th, td {
+    border: 1px solid;
+    font-size: large
+  }
+
+table{
+    width:100%;
+    background-color: rgba(104, 103, 98, 0.5);
+   
+
+}
+
+.table-div{
+    width:60%;
+    color:white;
+    margin-right: 90px;
+}
+tr:hover {
+    background-color: rgb(22, 22, 21);
+}
+th{
+    padding:1.5rem;
+    color:white;
+}
+td{
+    text-align: center;
+    height:80px;
+    vertical-align: center;
+    padding:1rem;
+}
+
+.heading{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+    color:white;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    gap:1rem;
+}
+.button-edit{
+    padding: 10px 22px;
+    background-color: #83b1ee;
+    color: white;
+    border-radius: 20px;
+}
+.button-delete{
+    padding: 10px 22px;
+    background-color: #e76868;
+    color:white;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+.maindiv{
+    background-color: rgba(247, 243, 243, 0.5);
+    display:flex;
+    justify-content: space-evenly;
+    margin-left:10rem;
+   margin-right: 10rem;
+    height:100vh;
+    padding:20px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    overflow-y:auto;
+   
+}
+.firstdiv{
+ 
+    width:55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+    
+   
+}
+.secondiv{
+    height:70%;
+    margin-top:0.5rem;
+    width:55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   
+}
+#inputs{
+    padding:15px;
+    width:50vh;
+    border-color: rgb(24, 23, 23);
+    border-width: 2px;
+    font-size: 15px;
+    
+}
+.inputs{
+    padding:15px;
+    width:50vh;
+    border-color: rgb(24, 23, 23);
+    border-width: 2px;
+    font-size: 15px;
+}
+#password{
+    padding:15px;
+    width:50vh;
+    margin-bottom: 10px;
+    border-color: rgb(24, 23, 23);
+    border-width: 2px;
+    font-size: 15px;
+}
+
+::placeholder{
+    color:black;
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-start;
+}
+#inputsec{
+    width:50vh;
+    height:30vh;
+    border-color: rgb(24, 23, 23);
+    border-width: 2px;
+    padding: 15px;
+    font-size: 15px;
+}
+
+
+.checks{
+    display: flex;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+input[type=checkbox] { 
+    vertical-align: middle; 
+    position: relative; 
+    margin-right: 40px;
+}
+.buttondetail{
+    width:50vh;
+    padding: 16px;;
+    font-size:15px;
+    margin-top: 30px;
+    color: white;
+    background-color: black;
+    font-weight: 900;
+}
+.buttondetail:hover {opacity: 1}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display:none;
+    color: #000;
+    position: relative;
+    margin-left:30px;
+    font-size: large;
+    
+  }
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+  }
+  
+  /* Add a red text color and an "x" icon when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+  }
+
+.or{
+    display: flex;
+}
+.passvis{
+    margin-bottom: 20px;
+}
+input[type="file"] {
+    width: 300px;
+    
+  }
+
+.error-message{
+    color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1300px) {
+    .body{
+        display: flex;
+        justify-content: center;
+    }
+    .maindiv{
+     width:70%;
+     margin-left: 5rem;
+   
+    }
+    .firstdiv{
+     margin-bottom:120px;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+    }
+    #inputs{
+        width:90%;
+    }
+    #inputsec{
+        width:90%;
+    }
+    #password{
+        width:90%;
+    }
+   
+   
+
+    
+ }
+
+ @media (max-width: 640px) {
+    .body{
+        display: flex;
+        justify-content: center;
+    
+    }
+    .maindiv{
+     width:90%;
+     margin-left: 1rem;
+     
+    }
+    .inputs{
+        width:90%;
+    }
+    #inputs{
+        width:90%;
+    }
+    #inputsec{
+        width:90%;
+    }
+    #password{
+        width:90%;
+    }
+    
+   
+
+    
+ }
+ @media (max-width: 513px) {
+    .body{
+        display: flex;
+        justify-content: center;
+    
+    }
+    .maindiv{
+     width:90%;
+     margin-left: 0rem;
+     
+     
+    }
+    .inputs{
+        width:70%;
+    }
+    #inputs{
+        width:70%;
+    }
+    #inputsec{
+        width:70%;
+    }
+    #password{
+        width:70%;
+    }
+    
+   
+
+    
+ }
+
+ @media (max-width: 397px) {
+    .body{
+        display: flex;
+        justify-content: center;
+    
+    }
+    .maindiv{
+     width:90%;
+     margin-left: 0rem;
+     
+     
+    }
+    #inputs{
+        width:70%;
+    }
+    .firstdiv{
+        margin-left: 0rem;
+    }
+    .inputs{
+        width:60%;
+    }
+    #inputsec{
+        width:60%;
+    }
+    #password{
+        width:60%;
+    }
+    
+   
+
+    
+ }
