@@ -56,16 +56,18 @@ td{
     gap:1rem;
 }
 .button-edit{
-    padding: 10px 22px;
+    padding: 10px 21px;
     background-color: #83b1ee;
     color: white;
     border-radius: 20px;
+    height:60px;
 }
 .button-delete{
-    padding: 10px 22px;
+    padding: 1px 21px;
     background-color: #e76868;
     color:white;
     border-radius: 20px;
+    height:60px;
 }
 
 
@@ -75,7 +77,7 @@ td{
 
 
 .maindiv{
-    background-color: rgba(247, 243, 243, 0.5);
+    background-color: rgba(223, 211, 211, 0.5);
     display:flex;
     justify-content: space-evenly;
     margin-left:10rem;
@@ -99,21 +101,14 @@ td{
 }
 .secondiv{
     height:70%;
-    margin-top:0.5rem;
     width:55vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-left: 1rem;
    
 }
-#inputs{
-    padding:15px;
-    width:50vh;
-    border-color: rgb(24, 23, 23);
-    border-width: 2px;
-    font-size: 15px;
-    
-}
+
 .inputs{
     padding:15px;
     width:50vh;
@@ -121,6 +116,7 @@ td{
     border-width: 2px;
     font-size: 15px;
 }
+
 #password{
     padding:15px;
     width:50vh;
@@ -135,14 +131,6 @@ td{
     font-weight: 600;
     display: flex;
     justify-content: flex-start;
-}
-#inputsec{
-    width:50vh;
-    height:30vh;
-    border-color: rgb(24, 23, 23);
-    border-width: 2px;
-    padding: 15px;
-    font-size: 15px;
 }
 
 
@@ -183,27 +171,15 @@ input[type=checkbox] {
     color: green;
   }
   
-  .valid:before {
-    position: relative;
-    left: -35px;
-  }
+  
   
   /* Add a red text color and an "x" icon when the requirements are wrong */
   .invalid {
     color: red;
   }
   
-  .invalid:before {
-    position: relative;
-    left: -35px;
-  }
+ 
 
-.or{
-    display: flex;
-}
-.passvis{
-    margin-bottom: 20px;
-}
 input[type="file"] {
     width: 300px;
     
@@ -215,18 +191,107 @@ input[type="file"] {
 
 
 
+#toastBox{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 2px;
+}
+.toast{
+    width: 400px;
+    height:70px;
+    background-color: #fff;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: larger;
+    font-weight: 500;
+    
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.toast text{
+    padding-top: 10rem;
+}
+.toast i{
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.invalid i{
+    color: orange;
+}
+
+.toast::after{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anime 5s linear forwards;
+}
+
+.toast.invalid::after{
+    background-color: orange;
+}
+
+@keyframes anime {
+    100%{
+        width: 0;
+    }
+}
 
 
 
 
+.modal{
+   display: none;
+   position: fixed;
+   left:0;
+   top:0;
+   margin: auto;
+   width: 100%;
+   height: 100%;
+   animation-direction: alternate-reverse;
+   
+}
 
+/* Modal Content/Box */
+.modal-content {
+    
+    background-color: #0a0a0ad0;
+    opacity: 1;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    padding:2rem;
+    font-size: larger;
+    text-align: center;
+    border-radius: 4rem;
+    color: aliceblue;
+  }
 
+  /* The Close Button */
+.close {
+    color: #e2dada;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
 
-
-
-
-
-
+.optionbutton{
+    padding: 1rem  2rem;
+    border-radius: 2rem;
+}
 
 
 
@@ -239,25 +304,40 @@ input[type="file"] {
         display: flex;
         justify-content: center;
     }
+    .totaldiv{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+    .table-div{
+        margin: 5rem;
+    }
     .maindiv{
-     width:70%;
-     margin-left: 5rem;
+     width:60%;
+  
    
     }
     .firstdiv{
-     margin-bottom:120px;
+   
      display: flex;
      flex-direction: column;
      align-items: flex-start;
     }
     #inputs{
-        width:90%;
+        width:80%;
+    }
+    .inputs{
+        width: 100%;
     }
     #inputsec{
-        width:90%;
+        width:80%;
     }
     #password{
-        width:90%;
+        width:80%;
+    }
+    .buttondetail{
+        margin-top: 5rem;
     }
    
    
