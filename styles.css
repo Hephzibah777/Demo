@@ -1,19 +1,21 @@
 body{
-    background-image: url('https://d1di04ifehjy6m.cloudfront.net/media/filer_public/67/ca/67cac7fa-1853-4f1d-95ed-db1ed6b38ec5/adobestock_212026013_2.png');
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center;
     background-attachment: fixed;
     height:100%;
+    background-color: #111010;
    
     
 }
 .totaldiv{
     display: flex;
     justify-content: space-between;
+   
 
 }
 table, th, td {
+    
     border: 1px solid;
     font-size: large
   }
@@ -26,6 +28,7 @@ table{
 }
 
 .table-div{
+    display: fixed;
     width:60%;
     color:white;
     margin-right: 90px;
@@ -72,12 +75,8 @@ td{
 
 
 
-
-
-
-
 .maindiv{
-    background-color: rgba(223, 211, 211, 0.5);
+    background-color: white;
     display:flex;
     justify-content: space-evenly;
     margin-left:10rem;
@@ -149,7 +148,8 @@ input[type=checkbox] {
     width:50vh;
     padding: 16px;;
     font-size:15px;
-    margin-top: 30px;
+    position: relative;
+    margin-top: 10%;
     color: white;
     background-color: black;
     font-weight: 900;
@@ -206,10 +206,10 @@ input[type="file"] {
     height:70px;
     background-color: #fff;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    font-size: larger;
     font-weight: 500;
+    font-size: 20px;
     
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -218,7 +218,6 @@ input[type="file"] {
 }
 .toast i{
     margin: 0 20px;
-    font-size: 35px;
     color: green;
 }
 
