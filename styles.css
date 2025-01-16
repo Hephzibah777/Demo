@@ -1,35 +1,144 @@
-body{
-    background-image: url('https://d1di04ifehjy6m.cloudfront.net/media/filer_public/67/ca/67cac7fa-1853-4f1d-95ed-db1ed6b38ec5/adobestock_212026013_2.png');
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    height:100%;
-   
-    
+
+*{
+    margin: 0px;
+    padding:0px;
+    font-family: "Roberto", sans-serif;
 }
-.totaldiv{
-    display: flex;
-    justify-content: space-between;
+.heading{
+    text-align: center;
+    padding:2rem;
+    font-size: small;
 
 }
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    padding:15px 20px;
+    margin-bottom: 4rem;
+}
+.pagination .active ~div{
+    background-color: rgb(158, 154, 154);
+}
+.number{
+    width:38px;
+    height:38px;
+    background-color: blueviolet;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+}
+.bar{
+    height:3px;
+    margin-top: 15px;
+    width:35%;
+    background-color: grey;
+}
+.totaldiv{
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+.form-page-container{
+   width:40%; 
+}
+.form{
+    box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.2);
+   overflow: hidden;
+    padding: 1rem;
+    border-radius: 2rem;
+    
+    
+}
+.steps{
+    width: 350%;
+    height:450px;
+    display: flex;
+    transition: all 300ms ease-in-out;
+    
+}
+.step{
+    max-width: 600px;
+    padding:15px 15px 15px;
+    overflow: hidden;
+    margin-left: 50px;
+    margin-right: 60px;
+   
+   
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:25px;
+    margin-top: 15px;
+}
+
+.col input{
+    margin-top: 10px;
+    margin-bottom:7px;
+   width: 80%;
+    padding:13px;
+    border-radius: 0.5rem;
+    background-color: rgb(228, 222, 222);
+    border-color: 1px solid rgb(48, 4, 89);
+    margin-right: 40px;
+
+
+}
+.col select{
+    width:80%;
+    padding:15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgb(228, 222, 222);
+    border-color: 1px solid rgb(48, 4, 89);
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+.footer button{
+    cursor: pointer;
+    margin:20px 10px 10px 10px;
+    padding:10px 20px;
+    border-color: 1px solid rgb(48, 4, 89);
+    color: white;
+    background-color: rgb(58, 4, 109);
+    border-radius: 0.5rem;
+}
+.radio-col{
+    margin:0px 2px 2px 0px;
+    
+}
+
+.step button{
+    cursor: pointer;
+    margin:10px;
+    padding:10px 20px;
+    border-color: 1px solid rgb(48, 4, 89);
+    color: white;
+    background-color: rgb(58, 4, 109);
+    border-radius: 0.5rem;
+}
+button:disabled,
+button[disabled]{
+    background-color: grey;
+}
+
 table, th, td {
+    
     border: 1px solid;
     font-size: large
   }
 
 table{
     width:100%;
-    background-color: rgba(104, 103, 98, 0.5);
+    background-color: rgba(51, 13, 56, 0.5);
    
 
 }
 
-.table-div{
-    width:60%;
-    color:white;
-    margin-right: 90px;
-}
+
 tr:hover {
     background-color: rgb(22, 22, 21);
 }
@@ -48,7 +157,7 @@ td{
     display:flex;
     justify-content: center;
     margin-top: 20px;
-    color:white;
+    color:rgb(15, 14, 15);
 }
 .buttons{
     display: flex;
@@ -70,68 +179,11 @@ td{
     height:60px;
 }
 
-
-
-
-
-
-
-.maindiv{
-    background-color: rgba(223, 211, 211, 0.5);
-    display:flex;
-    justify-content: space-evenly;
-    margin-left:10rem;
-   margin-right: 10rem;
-    height:100vh;
-    padding:20px;
-    border-radius: 20px;
-    flex-wrap: wrap;
-    overflow-y:auto;
-   
-}
-.firstdiv{
- 
-    width:55vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 30px;
-    
-   
-}
-.secondiv{
-    height:70%;
-    width:55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 1rem;
-   
+.mini-heading{
+    line-height: 15px;
+    font-size: smaller;
 }
 
-.inputs{
-    padding:15px;
-    width:50vh;
-    border-color: rgb(24, 23, 23);
-    border-width: 2px;
-    font-size: 15px;
-}
-
-#password{
-    padding:15px;
-    width:50vh;
-    margin-bottom: 10px;
-    border-color: rgb(24, 23, 23);
-    border-width: 2px;
-    font-size: 15px;
-}
-
-::placeholder{
-    color:black;
-    font-weight: 600;
-    display: flex;
-    justify-content: flex-start;
-}
 
 
 .checks{
@@ -145,24 +197,12 @@ input[type=checkbox] {
     position: relative; 
     margin-right: 40px;
 }
-.buttondetail{
-    width:50vh;
-    padding: 16px;;
-    font-size:15px;
-    margin-top: 30px;
-    color: white;
-    background-color: black;
-    font-weight: 900;
-}
-.buttondetail:hover {opacity: 1}
+
 
 /* The message box is shown when the user clicks on the password field */
 #message {
     display:none;
-    color: #000;
-    position: relative;
-    margin-left:30px;
-    font-size: large;
+   
     
   }
   
@@ -206,10 +246,10 @@ input[type="file"] {
     height:70px;
     background-color: #fff;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    font-size: larger;
     font-weight: 500;
+    font-size: 20px;
     
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -218,7 +258,6 @@ input[type="file"] {
 }
 .toast i{
     margin: 0 20px;
-    font-size: 35px;
     color: green;
 }
 
