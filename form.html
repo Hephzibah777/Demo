@@ -30,12 +30,12 @@
                         <div class="grid">
                             <div class="col">
                                 <label>Email</label>
-                                <input id="email" type="email">
+                                <input id="email" type="email" name="email" minLength="10" maxLength="20" >
                                 <span id="email-error" class="error-message"></span>
                             </div>
                             <div class="col">
                                 <label>Password</label>
-                                <input id="password">
+                                <input id="password" minLength="10">
                                
                                 <span id="password-error" class="error-message"></span>
                             </div>
@@ -64,6 +64,7 @@
                                 <select id="country">
                                     <option value="">Select Country</option>
                                 </select>
+                                <br>
                                 <span id="country-error" class="error-message"></span>
                             </div>
                             <div class="col">
@@ -71,6 +72,7 @@
                                 <select id="city">
                                     <option value="">Select City</option>
                                 </select>
+                                <br>
                                 <span id="city-error" class="error-message"></span>
                             </div>
                             <div class="col">
@@ -78,6 +80,7 @@
                                 <select id="area">
                                     <option value="">Select Area</option>
                                 </select>
+                                <br>
                                 <span id="area" class="error-message"></span>
                             </div>
                             <div class="col">
@@ -96,8 +99,8 @@
                         </div>
                     </div>
                     <div class="step">
-                        <button type="submit">Submit</button>
-                        <button  type="Preview">Preview</button>
+                        <button type="submit" id="submit">Submit</button>
+                        <button  type="preview" id="preview">Preview</button>
                     </div>
                 </div>
                 
@@ -140,6 +143,61 @@
             </div>
         </div>
 
+    </div>
+    <div class="preview-modal">
+        <div class="preview-modal-content">
+            <span class="close">&times;</span>
+            <h1>PREVIEW</h1>
+            <div class="background-div">
+                <div class="box">
+                    <h1>YOUR DETAILS</h1>
+                    <div class="box-content">
+                        <div class="each-field">
+                            <div>Email</div>
+                            <div id="email-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Password</div>
+                            <div id="password-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>First Name</div>
+                            <div id="firstname-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Last Name</div>
+                            <div id="lastname-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Phone Number</div>
+                            <div id="phone-value"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h1>YOUR ADDRESS</h1>
+                    <div class="box-content">
+                        <div class="each-field">
+                            <div>Country</div>
+                            <div id="country-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Area</div>
+                            <div id="area-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Pin Code</div>
+                            <div id="pin-value"></div>
+                        </div>
+                        <div class="each-field">
+                            <div>Relocation</div>
+                            <div id="relocation-value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 
     <script src="js/jquery-3.7.1.min.js"></script>
