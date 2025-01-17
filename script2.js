@@ -411,6 +411,7 @@
 
     $(".close").click(function(){
         $(".preview-modal").css("display", "none");
+        console.log("hello");
     })
     });
     
