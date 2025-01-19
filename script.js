@@ -7,6 +7,7 @@ let i = 0;
 // the below function works only when the validation is successfull, it adds the entries of the form in the table
 document.getElementById("myForm").addEventListener("submit", function (event) {
     event.preventDefault();
+    console.log("hello");
     //check whether the form is valid or not
     if (checkforvalidation(event) == true) {
         if (editrow != null) {
