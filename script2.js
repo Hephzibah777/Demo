@@ -42,119 +42,138 @@
 
 
 
-                var validation = {
-                    email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    phone: /^\d{10}$/,
-                    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-                    firstname: /^.+$/,
-                    lastname: /^.+$/,
-                    country: /^.+$/,
-                    city: /^.+$/,
-                    area: /^.+$/,
-                    pin: /^\d+$/,
-                    relocation: /^.+$/,
+                // var validation = {
+                //     email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                //     phone: /^\d{10}$/,
+                //     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+                //     firstname: /^.+$/,
+                //     lastname: /^.+$/,
+                //     country: /^.+$/,
+                //     city: /^.+$/,
+                //     area: /^.+$/,
+                //     pin: /^\d+$/,
+                //     relocation: /^.+$/,
 
 
-                }
-
-
-                $.fn.validatefunction = function (key, value) {
-                    if (value && validation[key].test(value)) return true;
-                    else return false;
-
-                }
-
-                var isValidfields = true;
-                $.each(formData, function (key, value) {
-                    var isValid = $.fn.validatefunction(key, value);
-                    if (isValid == false && key != "id") {
-                        isValidfields = false;
-                        console.log(`${key}` + isValidfields);
-                        var keystr = String(key) + "-error";
-                        console.log(`${key}`);
-                        if (key === "email") {
-                            $("#" + keystr).text("Input is invalid");
-                        }
-                        else
-                            if (key == "password") {
-                                $("#" + keystr).text("Password should contain atleast one digit, one uppercase, one lowercase.");
-                            }
-                            else
-                                if (key == "phone") {
-                                    $("#" + keystr).text("Phone should consists of 10 digits");
-                                }
-                                else {
-                                    $("#" + keystr).text("Input is Missing");
-                                }
-                    }
-                })
-
-                if (isValidfields == true) {
-                    $.fn.createtoastfunction("Submitted Successfully");
-                    $.fn.addrows(formData);
-                   
-                }
-                else {
-                    $.fn.createtoastfunction("Invalid Credentials");
-                }
-
-                // let FormDetails = {
-                //     email: $("#email"),
-                //     password: $("#password"),
-                //     country: $("#country"),
-                //     city: $("#city"),
-                //     area: $("#area"),
-                //     pin: $("#pin"),
-                //     firstname: $("#firstname"),
-                //     lastname: $("#lastname"),
-                //     phone: $("#phone"),
                 // }
-                // let allvalidate=true;
-                // let validationRules = [
-                //     {
-                //         attribute:"required",
-                //         isValid: input => input.val()==="",
-                //         errorMessage: (input) => `${input.attr("name")} is required`,
-                //     },
-                //     {
-                //         attribute:"minLength",
-                //         isValid: input => input.val().length<input.attr("minLength"),
-                //         errorMessage: (input) => `${input.attr("name")} should atleast contain ${input.attr("minLength")}`,
-                //     },
-                //     {
-                //         attribute:"maxLength",
-                //         isValid: input => input.val().length>input.attr("maxLength"),
-                //         errorMessage: (input) => `${input.attr("name")} is more than ${input.attr("maxLength")}`,
-                //     },
 
 
-                // ]
-                
-                // $.fn.validateField = function(input){
-                //     $.each(validationRules, function (key) {
-                //        if(input.hasAttribute(key.attribute) && !isValid(input)){
-                //         allvalidate=false;
-                //           var tempval="#" + input.attr('name');
-                //           $(tempval).val(key.errorMessage);
-                //        }
-            
-                //     })
+                // $.fn.validatefunction = function (key, value) {
+                //     if (value && validation[key].test(value)) return true;
+                //     else return false;
+
                 // }
-                // $.each(FormDetails, function(key){
-                //     $.fn.validateField(key.value);
+
+                // var isValidfields = true;
+                // $.each(formData, function (key, value) {
+                //     var isValid = $.fn.validatefunction(key, value);
+                //     if (isValid == false && key != "id") {
+                //         isValidfields = false;
+                //         console.log(`${key}` + isValidfields);
+                //         var keystr = String(key) + "-error";
+                //         console.log(`${key}`);
+                //         if (key === "email") {
+                //             $("#" + keystr).text("Input is invalid");
+                //         }
+                //         else
+                //             if (key == "password") {
+                //                 $("#" + keystr).text("Password should contain atleast one digit, one uppercase, one lowercase.");
+                //             }
+                //             else
+                //                 if (key == "phone") {
+                //                     $("#" + keystr).text("Phone should consists of 10 digits");
+                //                 }
+                //                 else {
+                //                     $("#" + keystr).text("Input is Missing");
+                //                 }
+                //     }
                 // })
-                // if(allvalidate==true){
+
+                // if (isValidfields == true) {
+                //     $.fn.createtoastfunction("Submitted Successfully");
+                //     $.fn.addrows(formData);
+
+                // }
+                // else {
+                //     $.fn.createtoastfunction("Invalid Credentials");
+                // }
+                
+               
+                
+               
+                // $.each(FormDetails, function (key, value) {
+                //     $.fn.validateField(value);
+                // })
+                // if (allvalidate == true) {
                 //     $.fn.createtoastfunction("Submitted Successfully");
                 //     $.fn.addrows(formData);
                 // }
 
 
-
+                $.fn.addrows(formData);
+                $.fn.createtoastfunction('<i class="fa-solid fa-check"></i> Submitted Successfully');
                 $("#myForm")[0].reset();
             }
         });
+         
+        let validationDetails = {
+            email: $("#email"),
+            password: $("#password"),
+            country: $("#country"),
+            city: $("#city"),
+            area: $("#area"),
+            pin: $("#pin"),
+            firstname: $("#firstname"),
+            lastname: $("#lastname"),
+            phone: $("#phone"),
+        }
+        let allvalidate = true;
+        
+        let validationRules = [
+            {
+                attribute: "req",
+                isValid: input => input.val() !== "",
+                errorMessage: (input) => {
+                    return `${input.attr("name")} is required`;
+                },
+            },
+            {
+                attribute: "minLength",
+                isValid: input => input.val().length >= input.attr("minLength"),
+                errorMessage: (input) => `${input.attr("name")} should atleast be of length ${input.attr("minLength")}`,
+            },
+            {
+                attribute: "maxLength",
+                isValid: input => input.val().length <= input.attr("maxLength"),
+                errorMessage: (input) => `${input.attr("name")} is more than ${input.attr("maxLength")}`,
+            },
+            {
+                attribute: "pattern",
+                isValid: input => {
+                    const pattern = new RegExp(input.attr("pattern"));
+                    return pattern.test(input.val());
+                },
+                errorMessage: (input) => `Not a valid ${input.attr("name")}`,
+            },
+        ]
+        $.fn.validateField = function (input) {
+            var validfield=true;
+            $.each(validationRules, function (key,value) {
+                var attr=$(input).attr(value.attribute);
+                if (typeof attr !== typeof undefined && attr !== false && !value.isValid(input)) {
+                    allvalidate = false;
+                    var tempval = "#" + input.attr('id') + "-error";
+                    $(tempval).text(value.errorMessage(input));
+                    validfield=false;
+                }
+            })
+            return validfield;
+        }
+       
 
-
+        $("input").focus(function () {
+            $(this).css("backgroundColor", "grey");
+        });
 
         $("input").focus(function () {
             $(this).css("backgroundColor", "grey");
@@ -200,7 +219,6 @@
         })
 
         $("#password").keyup(function () {
-            console.log("hello");
             // Validate lowercase letters
             var lowerCaseLetters = /[a-z]/g;
             if ($("#password").val().match(lowerCaseLetters)) {
@@ -356,7 +374,7 @@
                 if (formData.relocation == "yes") {
                     $("#yes").prop("checked", true);
                 }
-                else {
+                else if (formData.relocation == "no") {
                     $("#no").prop("checked", true);
                 }
 
@@ -393,27 +411,55 @@
             $.fn.movePage();
         })
         nextbtn.click(function () {
+            console.log($.fn.validatEachstep());
+            if($.fn.validatEachstep()==true){
             currentPage += 1;
             $.fn.movePage();
+            }
+        })
+        
+        const stepData = {
+            0:["email", "password","firstname", "lastname", "phone"],
+            1:["country", "city", "area", "pin"],
+        }
+        $.fn.validatEachstep=(function(){
+            var eachstep=true;
+            $.each(stepData[currentPage-1], function(key, value){
+                if($.fn.validateField(validationDetails[value])==false){
+                    eachstep=false;
+                }
+            })
+            return eachstep;    
         })
 
 
-        
-        $("#preview").click(function(){
+
+        $("#preview").click(function () {
             const preview = $(".preview-modal");
             preview.css("display", "block");
             $.each(formDetails, function (key, value) {
-                var temp="#" + key + "-value";
-                console.log(value);
-                $(temp).text(value);
-        })
-    })
+                var temp = "#" + key + "-value";
+                if (temp == "#firstname-value") {
+                    var valuesec = formDetails.firstname + " " + formDetails.lastname;
+                    $(temp).text(valuesec);
+                }
+                else if (temp == "#relocation-value" && value == "yes") {
+                    $(temp).text("Ready to Relocate");
+                }
+                else if (temp == "#relocation-value" && value == "no") {
+                    $(temp).text("Not Ready to Relocate");
+                }
+                else {
+                    $(temp).text(value);
+                }
 
-    $(".close").click(function(){
-        $(".preview-modal").css("display", "none");
-        console.log("hello");
-    })
+            })
+        })
+
+        $(".closeprofile").click(function () {
+            $(".preview-modal").css("display", "none");
+        })
     });
-    
+
 })(jQuery);
 

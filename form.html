@@ -29,30 +29,30 @@
                         <h4>YOUR DETAILS</h4>
                         <div class="grid">
                             <div class="col">
-                                <label>Email</label>
-                                <input id="email" type="email" name="email" minLength="10" maxLength="20" >
+                                <label>Email*</label>
+                                <input id="email" type="email" req name="Email" minLength="10" maxLength="40" pattern="^(.+)@(.+)$" >
                                 <span id="email-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>Password</label>
-                                <input id="password" minLength="10">
+                                <label>Password*</label>
+                                <input id="password" minLength="10" name="Password" minLength="8" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" req>
                                
                                 <span id="password-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>FirstName</label>
-                                <input id="firstname">
+                                <label>FirstName*</label>
+                                <input id="firstname" name="First Name" req>
                                 <span id="firstname-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>LastName</label>
-                                <input id="lastname">
+                                <label>LastName*</label>
+                                <input id="lastname" name="Last Name" req>
                                 <span id="lastname-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>Phone Number</label>
-                                <input id="phone">
-                                <span id="phone-error" class="error-message"></span>
+                                <label>Phone Number*</label>
+                                <input id="phone" minLength="10" maxLength="10" pattern="^\d{10}$" name="Phone Number" req>
+                                <span id="phone-error" class="error-message" ></span>
                             </div>
                         </div>
                     </div>
@@ -60,32 +60,32 @@
                         <h4>YOUR ADDRESS</h4>
                         <div class="grid">
                             <div class="col">
-                                <label>Country</label>
-                                <select id="country">
+                                <label>Country*</label>
+                                <select id="country" req name="Country">
                                     <option value="">Select Country</option>
                                 </select>
                                 <br>
                                 <span id="country-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>Select City</label>
-                                <select id="city">
+                                <label>Select City*</label>
+                                <select id="city" name="City" req>
                                     <option value="">Select City</option>
                                 </select>
                                 <br>
                                 <span id="city-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>Select Area</label>
-                                <select id="area">
+                                <label>Select Area*</label>
+                                <select id="area" name="Area" req>
                                     <option value="">Select Area</option>
                                 </select>
                                 <br>
-                                <span id="area" class="error-message"></span>
+                                <span id="area-error" class="error-message"></span>
                             </div>
                             <div class="col">
-                                <label>Pin Code</label>
-                                <input id="pin">
+                                <label>Pin Code*</label>
+                                <input id="pin" name="Pin Code" req>
                                 <span id="pin-error" class="error-message"></span>
                             </div>
                             <div class="radio-col">
@@ -94,13 +94,13 @@
                                 <input type="checkbox" id="yes" value="yes">
                                 <label>No</label>
                                 <input type="checkbox" id="no" value="no">
-                                <span id="email-error" class="error-message"></span>
+                                <span id="relocation-error" class="error-message"></span>
                             </div>
                         </div>
                     </div>
                     <div class="step">
                         <button type="submit" id="submit">Submit</button>
-                        <button  type="preview" id="preview">Preview</button>
+                        <button type="button" id="preview">Preview</button>
                     </div>
                 </div>
                 
@@ -146,54 +146,31 @@
     </div>
     <div class="preview-modal">
         <div class="preview-modal-content">
-            <span class="close">&times;</span>
-            <h1>PREVIEW</h1>
-            <div class="background-div">
-                <div class="box">
-                    <h1>YOUR DETAILS</h1>
-                    <div class="box-content">
-                        <div class="each-field">
-                            <div>Email</div>
-                            <div id="email-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Password</div>
-                            <div id="password-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>First Name</div>
-                            <div id="firstname-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Last Name</div>
-                            <div id="lastname-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Phone Number</div>
-                            <div id="phone-value"></div>
-                        </div>
+            <div class="background">
+                <span class="closeprofile">&times;</span>
+                <div class="profile-bg">
+                    <div class="profile">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
                     </div>
                 </div>
-                <div class="box">
-                    <h1>YOUR ADDRESS</h1>
-                    <div class="box-content">
-                        <div class="each-field">
-                            <div>Country</div>
-                            <div id="country-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Area</div>
-                            <div id="area-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Pin Code</div>
-                            <div id="pin-value"></div>
-                        </div>
-                        <div class="each-field">
-                            <div>Relocation</div>
-                            <div id="relocation-value"></div>
-                        </div>
-                    </div>
+            </div>
+            <div class="box">
+                <div class="full-name" id="firstname-value"></div>
+                <div class="field-content">
+                    <i class="fa-regular fa-envelope"></i>
+                    <div id="email-value"></div>
+                </div>
+                <div class="field-content">
+                    <i class="fa-solid fa-phone"></i>
+                    <div id="phone-value"></div>
+                </div>
+                <div class="field-content">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div id="country-value"></div>
+                </div>
+                <div class="field-content">
+                    <i class="fa-solid fa-globe"></i>
+                    <div id="relocation-value"></div>
                 </div>
             </div>
             
