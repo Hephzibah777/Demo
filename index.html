@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Registration Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css folder/styles.css">
     <script src="https://kit.fontawesome.com/64d00f49f4.js" crossorigin="anonymous"></script>
 </head>
 
@@ -16,27 +16,32 @@
     <div class="totaldiv"> <!--contains form and table-->
         <div class="form-page-container">
             <div class="pagination">
-                <div class="number active">1 <p class="mini-heading">Your Details</p></div>
+                <div class="number active"><span class="page">1</span> <p class="mini-heading">Your Details</p>
+                </div>
                 <div class="bar"></div>
-                <div class="number">2<p class="mini-heading">Your Address</p></div>
+                <div class="number"><span class="page">2</span><p class="mini-heading">Your Address</p>
+                </div>
                 <div class="bar"></div>
-                <div class="number">3<p class="mini-heading">Submit and Preview</p></div>
+                <div class="number"><span class="page">3</span><p class="mini-heading">Submit and Preview</p>
+                </div>
             </div>
             <form id="myForm" class="form">
-             
+
                 <div class="steps">
                     <div class="step">
                         <h4>YOUR DETAILS</h4>
                         <div class="grid">
                             <div class="col">
                                 <label>Email*</label>
-                                <input id="email" type="email" req name="Email" minLength="10" maxLength="40" pattern="^(.+)@(.+)$" >
+                                <input id="email" type="email" req name="Email" minLength="10" maxLength="40"
+                                    pattern="^(.+)@(.+)$">
                                 <span id="email-error" class="error-message"></span>
                             </div>
                             <div class="col">
                                 <label>Password*</label>
-                                <input id="password" minLength="10" name="Password" minLength="8" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" req>
-                               
+                                <input id="password" minLength="10" name="Password" minLength="8" maxlength="20"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" req>
+
                                 <span id="password-error" class="error-message"></span>
                             </div>
                             <div class="col">
@@ -51,8 +56,9 @@
                             </div>
                             <div class="col">
                                 <label>Phone Number*</label>
-                                <input id="phone" minLength="10" maxLength="10" pattern="^\d{10}$" name="Phone Number" req>
-                                <span id="phone-error" class="error-message" ></span>
+                                <input id="phone" minLength="10" maxLength="10" pattern="^\d{10}$" name="Phone Number"
+                                    req>
+                                <span id="phone-error" class="error-message"></span>
                             </div>
                         </div>
                     </div>
@@ -99,16 +105,50 @@
                         </div>
                     </div>
                     <div class="step">
-                        <button type="submit" id="submit">Submit</button>
-                        <button type="button" id="preview">Preview</button>
+                        <!-- <button type="submit" id="submit">Submit</button>
+                        <button type="button" id="preview">Preview</button> -->
+                        <div>
+                            <div class="preview-bg">
+                                <div class="preview-bg-content">
+                                    <div class="profile">
+                                        <img
+                                            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+                                            <div class="full-name" id="firstname-value"></div>
+                                    </div>
+                                    <div class="box">
+                                       
+                                        <div class="field-content">
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <div id="email-value"></div>
+                                        </div>
+                                        <div class="field-content">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <div id="phone-value"></div>
+                                        </div>
+                                        <div class="field-content">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <div id="country-value"></div>
+                                        </div>
+                                        <div class="field-content">
+                                            <i class="fa-solid fa-globe"></i>
+                                            <div id="relocation-value"></div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+                <button type="submit" id="submit">Submit</button>
             </form>
             <div class="footer">
                 <button class="prev" disabled>Previous</button>
                 <button class="next">Next</button>
+                
             </div>
+            
         </div>
         <div class="table-div">
             <table id="myTable">
@@ -135,7 +175,7 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span id="closedel" class="close">&times;</span>
             <p>Are you sure you want to delete this row?</p>
             <div class="options">
                 <button class="optionbutton" id="yesoption">Yes</button>
@@ -144,41 +184,14 @@
         </div>
 
     </div>
-    <div class="preview-modal">
-        <div class="preview-modal-content">
-            <div class="background">
-                <span class="closeprofile">&times;</span>
-                <div class="profile-bg">
-                    <div class="profile">
-                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="full-name" id="firstname-value"></div>
-                <div class="field-content">
-                    <i class="fa-regular fa-envelope"></i>
-                    <div id="email-value"></div>
-                </div>
-                <div class="field-content">
-                    <i class="fa-solid fa-phone"></i>
-                    <div id="phone-value"></div>
-                </div>
-                <div class="field-content">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div id="country-value"></div>
-                </div>
-                <div class="field-content">
-                    <i class="fa-solid fa-globe"></i>
-                    <div id="relocation-value"></div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
+
 
     <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js folder/formModule.js"></script>
+    <script src="assets/js folder/tableModule.js"></script>
+    <script src="assets/js folder/stepperModule.js"></script>
+
+    <script src="assets/js folder/script2.js"></script>
 </body>
 
 </html>
